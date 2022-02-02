@@ -36,7 +36,14 @@ export async function getReservations(req: Request, res: Response){
     ];
 
     const index = timeArray.indexOf(req.body.time);
-    let availableTimes = timeArray.splice(index-2, 4);
+    let availableTimes: string[];
+    if(index === 0){
+        availableTimes = timeArray.splice(index, 2);
+    }else if(index === 1){
+        availableTimes = timeArray.splice(index-1, 3);
+    }else{
+        availableTimes = timeArray.splice(index-2, 4);
+    }
     let finalArray = [];
     const reservation = await getReservationsModel(req.body.date, req.body.number, req.body.time);
     if(reservation===null){
