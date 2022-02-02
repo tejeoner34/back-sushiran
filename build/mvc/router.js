@@ -3,7 +3,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const express_1 = __importDefault(require("express"));
-const router = express_1.default.Router();
+var express_1 = __importDefault(require("express"));
+var controller_1 = require("./controller");
+var router = express_1.default.Router();
 router.route('/')
-    .get();
+    .post(controller_1.getReservations);
+router.route('/reserve')
+    .post(controller_1.postReservationController);
+exports.default = router;
