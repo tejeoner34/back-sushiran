@@ -6,7 +6,7 @@ dotenv.config();
 
 const app = express();
 app.use(express.json());
-const allowedOrigins = ['http://localhost:3000', 'https://tejeoner34.github.io/front-sushiran/'];
+const allowedOrigins = ['http://localhost:3000', 'https://tejeoner34.github.io/front-sushiran/', 'https://tejeoner34.github.io'];
 
 const options: cors.CorsOptions = {
   origin: allowedOrigins
